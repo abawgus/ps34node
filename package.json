@@ -1,0 +1,15 @@
+{
+  "name": "first-node-app",
+  "version": "1.0.0",
+  "description": "my first nodejs express app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^6.3.8",
+    "express": "^4.19.2"
+  }
+}
