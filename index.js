@@ -1,23 +1,24 @@
 const http = require('http');
 const fs = require('fs');
 
-const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb+srv://alyssabawgus:test1@cs120.fjcamx7.mongodb.net/?retryWrites=true&w=majority&appName=CS120";
+// const MongoClient = require('mongodb').MongoClient;
+// const url = "mongodb+srv://alyssabawgus:test1@cs120.fjcamx7.mongodb.net/?retryWrites=true&w=majority&appName=CS120";
 
-async function getLocInfo(query) {
-    const client = new MongoClient(url);
-    try {
-        var dbo = client.db("PS34NodeJS");
-        var places = dbo.collection('places');
-        var qdata = await places.findOne(query, {projection: {_id: 0, place:1, zips:1}})
-        return qdata
-    } finally {
-        await client.close()
-    }      
-}
+// async function getLocInfo(query) {
+//     const client = new MongoClient(url);
+//     try {
+//         var dbo = client.db("PS34NodeJS");
+//         var places = dbo.collection('places');
+//         var qdata = await places.findOne(query, {projection: {_id: 0, place:1, zips:1}})
+//         return qdata
+//     } finally {
+//         await client.close()
+//     }      
+// }
 
 http.createServer((req, res) => {
   if (req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('test')
     // fs.readFile('form.html', (err, data) => {
     //   if (err) {
