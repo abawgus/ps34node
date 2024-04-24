@@ -20,7 +20,7 @@
   "dependencies": {
     "csv": "^6.3.8",
     "express": "^4.19.2",
-    "mongodb": "latest",
+    "mongodb": "latest"
   },
   "homepage":""
 }
