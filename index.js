@@ -68,9 +68,9 @@ http.createServer((req, res) => {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('404 Not Found');
   }
-});
+}).listen(8080);
 
-const PORT = process.env.PORT || 8080;
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// const PORT = process.env.PORT || 8080;
+// server.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
