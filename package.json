@@ -1,6 +1,9 @@
 {
   "name": "first-node-app",
   "version": "1.0.0",
+  "engines" : {
+    "node" : "20.12.1"
+  },
   "description": "my first nodejs express app",
   "main": "index.js",
   "scripts": {
