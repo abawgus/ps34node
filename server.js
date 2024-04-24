@@ -47,8 +47,8 @@ const app = http.createServer((req, res) => {
 
       req.on('end', () => {
       
-      //   const formData = new URLSearchParams(body);
-      //   const location = formData.get('location');
+        const formData = new URLSearchParams(body);
+        const location = formData.get('location');
         
       //   console.log('Input:', location);
         
@@ -68,6 +68,7 @@ const app = http.createServer((req, res) => {
       //     res.end('');
       //   })
         res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(location);
         res.end('End Process Screen');
       });
     }
