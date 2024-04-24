@@ -16,7 +16,7 @@ async function getLocInfo(query) {
     }      
 }
 
-const server = http.createServer((req, res) => {
+http.createServer((req, res) => {
   if (req.url === '/') {
     res.end('test')
     // fs.readFile('form.html', (err, data) => {
