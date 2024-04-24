@@ -58,17 +58,18 @@ const app = http.createServer((req, res) => {
           query = {place:location};
         }
 
-        // getLocInfo(query).then(qdata =>{
-        //   console.log(qdata)
-        //   res.write('<b>Place:</b> '+qdata.place)
-        //   res.write('<br>')
-        //   res.write('<b>Zips:</b> '+qdata.zips.join(', '))
+        getLocInfo(query).then(qdata =>{
+          console.log(qdata)
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.write('<b>Place:</b> '+qdata.place)
+          res.write('<br>')
+          res.write('<b>Zips:</b> '+qdata.zips.join(', '))
           
-        //   res.end('');
-        // })
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(location);
-        res.end('End Process Screen');
+          res.end('');
+        })
+        
+        // res.write(location);
+        // res.end('End Process Screen');
       });
     }
   else {
