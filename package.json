@@ -2,18 +2,24 @@
   "name": "first-node-app",
   "version": "1.0.0",
   "description": "my first nodejs express app",
+  "main": "server.js",
+  "scripts": {
+    "start" : "node server.js"
+  },
+  "repository": {
+    "type":"git",
+    "url":"https://github.com/abawgus/ps34node"
+  },
+
   "engines" : {
     "node" : "20.x"
   },
   
-  
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "abawgus",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "csv": "^6.3.8",
     "express": "^4.19.2"
-  }
+  },
+  "homepage":""
 }
