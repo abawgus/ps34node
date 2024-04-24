@@ -1,22 +1,15 @@
 {
-  "name": "ps34",
+  "name": "first-node-app",
   "version": "1.0.0",
   "description": "my first nodejs express app",
-  "main": "index.js",
+  "main": "ps2.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ps2.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "csv": "^6.3.8",
-    "express": "^4.19.2",
-    "q": "^1.5.1"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "ps34node"
+    "express": "^4.19.2"
   }
 }
