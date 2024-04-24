@@ -18,49 +18,52 @@ async function getLocInfo(query) {
 
 const server = http.createServer((req, res) => {
   if (req.url === '/') {
-    fs.readFile('form.html', (err, data) => {
-      if (err) {
-        console.log('Error')
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(data);
-      }
-    });
+    res.end('test')
+    // fs.readFile('form.html', (err, data) => {
+    //   if (err) {
+    //     console.log('Error')
+    //   } else {
+    //     res.writeHead(200, { 'Content-Type': 'text/html' });
+    //     res.end(data);
+    //   }
+    // });
 
-  } else if (req.method === 'POST' && req.url === '/process') {
-    let body = '';
-    let query = {};
+  } 
+  // else if (req.method === 'POST' && req.url === '/process') {
+  //   let body = '';
+  //   let query = {};
 
-    req.on('data', (chunk) => {
-      body += chunk.toString();
-    });
+  //   req.on('data', (chunk) => {
+  //     body += chunk.toString();
+  //   });
 
-    req.on('end', () => {
+  //   req.on('end', () => {
       
-      const formData = new URLSearchParams(body);
-      const location = formData.get('location');
+  //     const formData = new URLSearchParams(body);
+  //     const location = formData.get('location');
       
-      console.log('Input:', location);
+  //     console.log('Input:', location);
       
-      if (/^\d+$/.test(location[0])) {
-        console.log('Zip')
-        query = {zips:location};
-      } else {
-        console.log('Place')
-        query = {place:location};
-      }
-      getLocInfo(query).then(qdata =>{
-        console.log(qdata)
-        res.write('<b>Place:</b> '+qdata.place)
-        res.write('<br>')
-        res.write('<b>Zips:</b> '+qdata.zips.join(', '))
+  //     if (/^\d+$/.test(location[0])) {
+  //       console.log('Zip')
+  //       query = {zips:location};
+  //     } else {
+  //       console.log('Place')
+  //       query = {place:location};
+  //     }
+  //     getLocInfo(query).then(qdata =>{
+  //       console.log(qdata)
+  //       res.write('<b>Place:</b> '+qdata.place)
+  //       res.write('<br>')
+  //       res.write('<b>Zips:</b> '+qdata.zips.join(', '))
         
-        res.end('');
-      })
-      res.writeHead(200, { 'Content-Type': 'text/html' });
+  //       res.end('');
+  //     })
+  //     res.writeHead(200, { 'Content-Type': 'text/html' });
    
-    });
-  } else {
+  //   });
+  // } 
+  else {
     // Handle 404 Not Found
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('404 Not Found');
