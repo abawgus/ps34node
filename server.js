@@ -13,16 +13,16 @@ const fs = require('fs');
 
 const app = http.createServer((req, res) => {
   if (req.url === '/') {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.writeHead(200, { 'Content-Type': 'text/plain' });    
     fs.readFile('form.html', (err, data) => {
-      // if (err) {
-      //   console.log('Error')
-      // } else {
-      //   res.writeHead(200, { 'Content-Type': 'text/html' });
-      //   res.end(data);
-      // }
+      if (err) {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end(err);
+      } else {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+      }
     });
-    res.end('test2')
     
   } else {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
