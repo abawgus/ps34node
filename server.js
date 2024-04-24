@@ -38,39 +38,40 @@ const app = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end(html)
   } else if (req.method === 'POST' && req.url === '/process') {
-      // let body = '';
-      // let query = {};
+      let body = '';
+      let query = {};
 
-      // req.on('data', (chunk) => {
-      //   body += chunk.toString();
-      // });
+      req.on('data', (chunk) => {
+        body += chunk.toString();
+      });
 
-      // req.on('end', () => {
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+
+      req.on('end', () => {
         
-      //   const formData = new URLSearchParams(body);
-      //   const location = formData.get('location');
+        const formData = new URLSearchParams(body);
+        const location = formData.get('location');
         
-      //   console.log('Input:', location);
+        // console.log('Input:', location);
+        res.write(location)
         
-      //   if (/^\d+$/.test(location[0])) {
-      //     console.log('Zip')
-      //     query = {zips:location};
-      //   } else {
-      //     console.log('Place')
-      //     query = {place:location};
-      //   }
-      //   getLocInfo(query).then(qdata =>{
-      //     console.log(qdata)
-      //     res.write('<b>Place:</b> '+qdata.place)
-      //     res.write('<br>')
-      //     res.write('<b>Zips:</b> '+qdata.zips.join(', '))
+        // if (/^\d+$/.test(location[0])) {
+        //   console.log('Zip')
+        //   query = {zips:location};
+        // } else {
+        //   console.log('Place')
+        //   query = {place:location};
+        // }
+        // getLocInfo(query).then(qdata =>{
+        //   console.log(qdata)
+        //   res.write('<b>Place:</b> '+qdata.place)
+        //   res.write('<br>')
+        //   res.write('<b>Zips:</b> '+qdata.zips.join(', '))
           
-      //     res.end('');
-      //   })
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end('')
-    
+        //   res.end('');
+        })        
       // })
+      res.end('')
   } else {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('404 Not Found');
